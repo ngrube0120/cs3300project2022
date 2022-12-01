@@ -1,57 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap 5 Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+<p style="color: green"><%= notice %></p>
 
-<div class="container-fluid p-2 bg-dark text-white text-start">
-  <button type="button" class="btn btn-dark">Home</button>
-  <button class="btn btn-dark dropdown-toggle" type="button" id="accountDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
-    Account
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="accountDropdownButton">
-    <li><a class="dropdown-item" href="#">Sign in</a></li>
-    <li><a class="dropdown-item" href="#">Sign up</a></li>
-  </ul>
+<h1>Projects</h1>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+    <p>
+      <%= link_to "Show this project", project %>
+    </p>
+  <% end %>
 </div>
 
-<div class="container-fluid p-3 text-start">
-	<h1>My Portfolio</h1>
-    <p>My name is Nicholas Grube and I am currently earning my <a href="https://eas.uccs.edu/cs/academics/undergraduate-programs/bachelor-of-science-in-computer-science">Bachelor's of Science in Computer Science<a> at UCCS</p>
-    <p>Programming Languages</p>
-    <ul>
-      <li>C</li>
-      <li>C#</li>
-      <li>Java</li>
-      <li>Ruby</li>
-  </ul>
-
-</div>
-  
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-sm-4" style="border: 2px outset black;">
-      <h3>Project Title 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Viverra tellus in hac habitasse.</p>
-      <button type="button" class="btn btn-outline-dark">Show this project</button>
-    </div>
-    <div class="col-sm-4" style="border: 2px outset black;">
-      <h3>Project Title 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis blandit turpis cursus in hac habitasse platea. Lectus sit amet est placerat in egestas erat imperdiet sed.</p>
-      <button type="button" class="btn btn-outline-dark">Show this project</button>
-    </div>
-    <div class="col-sm-4" style="border: 2px outset black;">
-      <h3>Project Title 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum posuere lorem ipsum dolor sit.</p>
-      <button type="button" class="btn btn-outline-dark">Show this project</button>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+<%= link_to "New project", new_project_path %>

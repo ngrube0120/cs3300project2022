@@ -23,6 +23,15 @@
           
           <div> Welcome <%= current_user.email %> </div>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+
+          <div id="projects">
+          <% @projects.each do |project| %>
+            <%= render project %>
+            <p>
+              <%= link_to "Show this project", project %>
+            </p>
+          <% end %>
+          </div>
         
         <% else %>
           <a href="/users/sign_in"> Sign in</a>
