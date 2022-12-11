@@ -15,8 +15,12 @@
     Account
   </button>
   <ul class="dropdown-menu" aria-labelledby="accountDropdownButton">
+  <% if user_signed_in? %>     
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% else %>
     <li><a class="dropdown-item" href="/users/sign_in">Sign in</a></li>
-    <li><a class="dropdown-item" href="#">Sign up</a></li>
+    <li><a class="dropdown-item" href="/users/sign_up">Sign up</a></li>
+  <% end %>
   </ul>
 </div>
 
@@ -24,10 +28,12 @@
   <div class="jumbotron m-3">
     <h1 class="display-4"><%= @project.title %></h1>
     <h2 class="lead"><%= @project.description %></p>
-    <hr class="my-4">
-    <a class="btn btn-dark btn-lg m-1" href= <%= edit_project_path(@project) %> role="button">Edit Project >></a>
-    <br>
-    <a class="btn btn-danger m-1" href="#" role="button">Delete Project</a>
+    <% if user_signed_in? %>     
+      <hr class="my-4">
+      <a class="btn btn-dark btn-lg m-1" href= <%= edit_project_path(@project) %> role="button">Edit Project >></a>
+      <br>
+      <a class="btn btn-danger m-1" href="#" role="button">Delete Project</a>
+    <% end %>
   </div>
 </div>
 

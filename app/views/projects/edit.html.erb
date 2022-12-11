@@ -27,9 +27,9 @@
 <div class="container-fluid p-4">
   <%= render "form", project: @project %>
   <hr class="my-4">
-  <a class="btn btn-dark m-1" href="#" role="button">Back</a>
+  <a class="btn btn-dark m-1" href="/projects/<%= @project.id %>">Cancel</a>
   <br>
-  <a class="btn btn-danger m-1" href="#" role="button">Delete Project</a>
+  <a class="btn btn-danger m-1" href="/projects/<%= @project.id %>">Delete Project</a>
 </div>
 
 </body>
